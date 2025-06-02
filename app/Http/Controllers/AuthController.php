@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Tymon\JWTAuth\Contracts\Providers\JWT;
 use Tymon\JWTAuth\Facades\JWTAuth;
 use Tymon\JWTAuth\Exceptions\JWTException;
 
@@ -48,6 +49,8 @@ class AuthController extends Controller
         }
 
         return response()->json([
+            'id' => JWTAuth::user()->id,
+            'username' => JWTAuth::user()->username,
             'token' => $token,
             'user' => JWTAuth::user()
         ]);
