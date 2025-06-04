@@ -5,7 +5,7 @@ use App\Http\Controllers\PostController;
 
 Route::get('posts', [PostController::class, 'index']);
 Route::get('posts/{id}', [PostController::class, 'show']);
-Route::post('posts', [PostController::class, 'store'])->middleware('auth:api');
+Route::post('posts', [PostController::class, 'store']);
 Route::put('posts/{id}', [PostController::class, 'update'])->middleware('auth:api');
 Route::delete('posts/{id}', [PostController::class, 'destroy'])->middleware('auth:api');
 
